@@ -14,4 +14,4 @@ primer tp
   B- Implementar Runnable, crear un objeto de tipo Thread y llamar al método run(Runnable "r") dónde "r" es el objeto que         
      implemente Runnable.
      
-  C- 
+  C- crear un objeto de tipo Thread y mandar por parámetro una clase anónima que implemente Runnable (definiendo allí el cuerpo del  método run() ). Lo mismo de arriba pero pedorro.
