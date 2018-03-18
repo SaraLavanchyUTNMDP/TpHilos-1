@@ -20,19 +20,25 @@ public class BeerProducer extends Thread{
         this.stock = stock;
         this.outOfStock = stock <= 0 ;
         this.beerHouse = beerHouse;
+        this.beerHouse.incrementActiveProducers();
     }
     
     @Override
     public void run(){
         while(!outOfStock){
-            charge();
-            System.out.println("Productor: " + name + ", Stock actual : " + stock);
+            if(beerHouse.isNotFull()){
+                charge();
+            }else{
+                System.out.println("Productor: " + name + " en espera.");   
+            }
         }
+        beerHouse.decrementActiveProducers();
     }
     
     public void charge(){
+            reduceStock();    
+            System.out.println("Productor: " + name + " cargó una unidad. Stock actual : " + stock);
             beerHouse.charge();
-            reduceStock();
     }
     
     public boolean isOutOfStock(){

@@ -21,7 +21,7 @@ public class BeerConsumer extends Thread{
     
     @Override
     public void run(){
-        while(true){
+        while(beerHouse.isOpen()){
             if(beerHouse.isNotEmpty()){
                 BuyOnBeerHouse();
             }else{
@@ -33,15 +33,6 @@ public class BeerConsumer extends Thread{
     public void BuyOnBeerHouse(){
         beerHouse.sell();
         beersBought++;
-        System.out.println("Consumidor: " + name + ", Cantidad consumida: " + beersBought);
+        System.out.println("Consumidor: " + name + " consumió una unidad. Cantidad consumida: " + beersBought);
     }
-    
-    public BeerHouse getBeerHouse() {
-        return beerHouse;
-    }
-
-    public void setBeerHouse(BeerHouse beerHouse) {
-        this.beerHouse = beerHouse;
-    }
-    
 }
