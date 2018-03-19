@@ -32,7 +32,7 @@ public class BeerHouse {
     public synchronized void charge(){
         while(!isNotFull()){
             try {
-                System.out.println("BeerHouse llena."+cantCervezas);
+                System.out.println("BeerHouse llena con "+cantCervezas+" cervezas");
                 wait();
             } catch (InterruptedException ex) 
             {
@@ -48,7 +48,7 @@ public class BeerHouse {
     public synchronized void sell(){
         while(!isNotEmpty()){
             try {
-                System.out.println("BeerHouse Vacia."+cantCervezas);
+                System.out.println("BeerHouse Vacia en "+cantCervezas+" cervezas");
                 wait();
             } catch (InterruptedException ex) 
             {
@@ -60,13 +60,13 @@ public class BeerHouse {
         notifyAll();
     }
 
-    public boolean isNotEmpty() {
+    public synchronized boolean isNotEmpty() {
        isNotEmpty = cantCervezas > 0;
        
        return isNotEmpty;
     }
     
-    public boolean isNotFull(){
+    public synchronized boolean isNotFull(){
         isNotFull = cantCervezas < limiteCervezas; //si es igual al limite es por que está llena.
         
         return isNotFull;

@@ -24,8 +24,8 @@ public class BeerConsumer extends Thread{
         while(beerHouse.isOpen()){
             if(beerHouse.isNotEmpty()){
                 BuyOnBeerHouse();
-            }else{
-                System.out.println("Consumidor: " + name + " en espera.");   
+           }else{
+               System.out.println("Consumidor: " + name + " en espera.");   
             }
         }
     }

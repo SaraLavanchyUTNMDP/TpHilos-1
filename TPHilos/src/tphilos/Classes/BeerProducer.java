@@ -26,11 +26,11 @@ public class BeerProducer extends Thread{
     @Override
     public void run(){
         while(!outOfStock){
-            if(beerHouse.isNotFull()){
+           // if(beerHouse.isNotFull()){
                 charge();
-            }else{
-                System.out.println("Productor: " + name + " en espera.");   
-            }
+           // }else{
+           //     System.out.println("Productor: " + name + " en espera.");   
+           // }
         }
         beerHouse.decrementActiveProducers();
     }
