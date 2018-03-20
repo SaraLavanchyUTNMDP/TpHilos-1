@@ -26,6 +26,7 @@ public class BeerProducer extends Thread{
     @Override
     public void run(){
         while(!outOfStock){
+            System.out.println("tilda productor");
            // if(beerHouse.isNotFull()){
                 charge();
            // }else{

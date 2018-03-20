@@ -46,7 +46,7 @@ public class BeerHouse {
     }
     
     public synchronized void sell(){
-        while(!isNotEmpty()){
+        while(isOpen() && !isNotEmpty()){
             try {
                 System.out.println("BeerHouse Vacia en "+cantCervezas+" cervezas");
                 wait();
